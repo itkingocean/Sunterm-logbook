@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+<h4>
+  <strong>Name:</strong>
+  <%= @signin.name %>
+</h4>
+
+<h4>
+  <strong>Company:</strong>
+  <%= @signin.company %>
+</h4>
+
+<h4>
+  <strong>Purpose:</strong>
+  <%= @signin.purpose %>
+</h4>
+
+
+
+<br>
+<div class-"container">
+<%= link_to 'Edit', edit_signin_path(@signin) , class: "btn btn-primary btn-lg btn-block text-white"%>
+<br>
+</div>
+<%= link_to 'Done', signins_path, class:"btn btn-success btn-lg btn-block text-white" %>

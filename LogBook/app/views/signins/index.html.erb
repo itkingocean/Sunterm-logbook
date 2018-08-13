@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+
+<head>
+<title>Kingocean Logbook</title>
+<meta charset="utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+<div class="container text-center">
+
+      <div class="jumbotron" align="center">
+        <h1>Kingocean Logbook</h1>      
+        <h3>Click Sign In</h3>
+        <h4><%= Time.now.strftime("%m/%d/%Y") %></h4>
+        
+      </div>
+      
+      <%= link_to 'Sign In' , new_signin_path, class: "btn btn-success btn-lg btn-block text-white" %>
+      <br>
+      <%= link_to 'Home' , "../", class: "btn btn-primary btn-lg btn-block text-white" %>
+      <br>
+      <div class="container text-center">
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @signins.each do |signin| %>
+            <tr>
+              <td><%= link_to signin.name , edit_signin_path(signin), class: "text-dark"%></td>
+              <td><%= signin.company %></td>
+              <td><%= signin.purpose %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      </div>
+
+      </div>
+

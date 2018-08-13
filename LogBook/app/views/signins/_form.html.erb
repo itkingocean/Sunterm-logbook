@@ -1,0 +1,51 @@
+<%= form_with(model: signin, local: true) do |form| %>
+  <% if signin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(signin.errors.count, "error") %> prohibited this signin from being saved:</h2>
+
+      <ul>
+      <% signin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+          <div class="field">
+          <div class="input-group-lg">
+          <div class="input-group-prepend">
+                <%= form.label :Name, class:"input-group-text" %>
+                <%= form.text_field :name, class:"form-control" %>
+          </div>
+          </div>
+          </div>
+          
+          
+          <div class="field">
+          <div class="input-group-lg">
+          <div class="input-group-prepend">
+                <%= form.label :Company, class:"input-group-text" %>
+                <%= form.text_field :company, class:"form-control" %>
+          </div>
+          </div>
+          </div>
+
+          <div class="field">
+          <div class="input-group-lg">
+          <div class="input-group-prepend">
+                <%= form.label :Purpose, class:"input-group-text" %>
+                <%= form.text_field :purpose, class:"form-control" %>
+          </div>
+          </div>
+          </div>
+          
+          <br>
+          
+              <%= submit_tag 'Sign In' ,class:"btn btn-success btn-lg btn-block text-white"%>
+              <br>
+              <%= link_to 'Back', '/signins', class:"btn btn-primary btn-lg btn-block text-white" %>
+  
+  
+<% end %>
