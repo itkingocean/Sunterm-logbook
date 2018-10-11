@@ -4,7 +4,12 @@ class SigninsController < ApplicationController
   # GET /signins
   # GET /signins.json
   def index
-    @signins = Signin.all
+    @signins = Signin.search(params[:search])
+    respond_to do |format|
+      format.html
+      format.csv { send_data @signins.to_csv }
+      format.xls  { send_data @signins.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /signins/1

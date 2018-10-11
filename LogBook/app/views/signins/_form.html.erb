@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-
+<div class="container">
 
           <div class="field">
           <div class="input-group-lg">
           <div class="input-group-prepend">
                 <%= form.label :Name, class:"input-group-text" %>
-                <%= form.text_field :name, class:"form-control" %>
+                <%= form.text_field :name, :required => true, class:"form-control" %>
           </div>
           </div>
           </div>
@@ -46,6 +46,6 @@
               <%= submit_tag 'Sign In' ,class:"btn btn-success btn-lg btn-block text-white"%>
               <br>
               <%= link_to 'Back', '/signins', class:"btn btn-primary btn-lg btn-block text-white" %>
-  
+  </div>
   
 <% end %>

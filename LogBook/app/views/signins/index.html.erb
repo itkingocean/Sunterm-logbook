@@ -12,11 +12,18 @@
 <div class="container text-center">
 
       <div class="jumbotron" align="center">
-        <h1>Kingocean Logbook</h1>      
-        <h3>Click Sign In</h3>
+      <%= image_tag("KINGOCEANLOGOPLAIN.JPG", :width => 400, :crop => "pad" ) %>
+      <br>
+      <br>
         <h4><%= Time.now.strftime("%m/%d/%Y") %></h4>
-        
+        <%= form_tag signins_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search], placeholder: 'YEAR-MM-DD' %>
+          <%= submit_tag "Search", class: "btn-secondary" %>
+          <% end %>
+                      
       </div>
+      
+      
       
       <%= link_to 'Sign In' , new_signin_path, class: "btn btn-success btn-lg btn-block text-white" %>
       <br>
@@ -43,7 +50,13 @@
         </tbody>
       </table>
 
-      </div>
-
-      </div>
+</div>
+      <p>
+      _________________________________________
+      <br>
+      Download Today's log:
+      <%= link_to "Excel", signins_path(format: "xls") %> |
+      <%= link_to "CSV", signins_path(format: "csv", :search => @search) %>
+    </p>
+</div>
 
